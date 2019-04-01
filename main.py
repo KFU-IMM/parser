@@ -373,6 +373,7 @@ def main():
     print(home)
     pereriv = 0
     while True:
+        print("piipipi main")
         x = 0
         file=Path(__file__).parent / 'last_parse.csv'
         with open(file) as csvfile:
