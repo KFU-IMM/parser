@@ -368,7 +368,8 @@ def main():
     pereriv = 0
     while True:
         x = 0
-        with open('app\\last_parse.csv') as csvfile:
+        file=pathlib.Path(__file__).parent / 'last_parse.csv'
+        with open(file) as csvfile:
             reader = csv.reader(csvfile, delimiter=' ', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             for data in reader:
                 x = data[0]
