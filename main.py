@@ -396,6 +396,7 @@ def main():
 
 
 if __name__ == '__main__':
+    .listen(process.env.PORT || 5000)
     # print(str(datetime.now().day))
     try:
         main()
