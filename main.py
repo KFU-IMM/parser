@@ -393,6 +393,8 @@ def main():
                 pereriv = 5
             except TimeoutError:
                 pereriv = 1
+        else:
+            print("Еще не время, жди до "+str(x))
 
 
 if __name__ == '__main__':
