@@ -8,6 +8,7 @@ from urllib.request import Request, urlopen
 import random
 from multiprocessing import Pool, TimeoutError
 import time as timef
+from pathlib import Path
 
 # proxies = []  # Will contain proxies [ip, port]
 
@@ -362,6 +363,8 @@ def everyday_process():
 
 
 def main():
+    home = str(Path.home())
+    print(home)
     pereriv = 0
     while True:
         x = 0
