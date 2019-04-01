@@ -86,13 +86,15 @@ def get_from_area(area):
 
     old = []
     new = []
-
-    with open('.\\Data\\Old\\old' + area + '.csv') as csvfile:
+    
+    file=Path(__file__).parent / '\\Data\\Old\\old' + area + '.csv' 
+    with open(file) as csvfile:
         reader = csv.reader(csvfile, delimiter=' ', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for data in reader:
             old.append(data)
         # print(old)
-    with open('.\\Data\\Cure\\' + area + '.csv') as csvfile:
+    file=Path(__file__).parent / '\\Data\\Cure' + area + '.csv' 
+    with open(file) as csvfile:
         reader = csv.reader(csvfile, delimiter=' ', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         for data in reader:
             new.append(data)
@@ -128,10 +130,13 @@ def get_from_area(area):
                 'time': time
             }
             write_csv(data, 'Del\\' + area)
-
-    os.rename('.\\Data\\Old\\old' + area + '.csv',
-              '.\\Data\\Old\\Archive\\' + 'old' + area + '_' + str(dt.now()).replace(":", "_") + '.csv')
-    os.rename('.\\Data\\Cure\\' + area + '.csv', '.\\Data\\Old\\' + 'old' + area + '.csv')
+            
+    file=Path(__file__).parent / '\\Data\\Old\\old' + area + '.csv'
+    file2=Path(__file__).parent / '\\Data\\Old\\Archive\\old' + area + '_' + str(dt.now()).replace(":", "_") + '.csv'
+    os.rename(file, file2)
+    file=Path(__file__).parent / '\\Data\\Cure\\' + area + '.csv'
+    file2=Path(__file__).parent / '\\Data\\Old\\old' + area + '.csv'
+    os.rename(file,file2)
     # SystemExit(1)
 
 
@@ -309,7 +314,8 @@ def get_data_from_html(html, area):
 
 
 def write_csv(data, area):
-    with open('.\\Data\\' + area + '.csv', 'a', newline='') as f:
+    file=Path(__file__).parent / '\\Data\\' + area + '.csv'
+    with open(file, 'a', newline='') as f:
         writer = csv.writer(f, delimiter=' ', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         writer.writerow([data['ad_url'],
                          data['square'],
@@ -380,7 +386,8 @@ def main():
             try:
                 everyday_process()
                 print('hah')
-                with open('.\\last_parse.csv', 'w+', newline='') as f:
+                file=Path(__file__).parent / 'last_parse.csv'
+                with open(file, 'w+', newline='') as f:
                     writer = csv.writer(f, delimiter=' ', quotechar='"')
                     writer.writerow([dt.now()])
                 pereriv = 5
