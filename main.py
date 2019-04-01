@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 import random
 from multiprocessing import Pool, TimeoutError
 import time as timef
-from pathlib import Path
+import pathlib
 
 # proxies = []  # Will contain proxies [ip, port]
 
