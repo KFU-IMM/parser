@@ -8,7 +8,7 @@ from urllib.request import Request, urlopen
 import random
 from multiprocessing import Pool, TimeoutError
 import time as timef
-import pathlib
+from pathlib import Path
 
 # proxies = []  # Will contain proxies [ip, port]
 
@@ -368,7 +368,7 @@ def main():
     pereriv = 0
     while True:
         x = 0
-        file=pathlib.Path(__file__).parent / 'last_parse.csv'
+        file=Path(__file__).parent / 'last_parse.csv'
         with open(file) as csvfile:
             reader = csv.reader(csvfile, delimiter=' ', quotechar='"', quoting=csv.QUOTE_MINIMAL)
             for data in reader:
