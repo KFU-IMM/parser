@@ -9,7 +9,7 @@ lxml==4.3.2
 mysqlclient==1.4.2.post1
 numpy==1.16.2
 pandas==0.24.1
-pip==19.0.3
+pip==19.2
 python-dateutil==2.8.0
 pytz==2018.9
 requests==2.21.0
