@@ -15,7 +15,7 @@ pytz==2018.9
 requests==2.21.0
 scrapy-rotating-proxies==0.6
 selenium==3.141.0
-setuptools==40.6.2
+setuptools==65.5.1
 six==1.12.0
 soupsieve==1.8
 stem==1.7.1
